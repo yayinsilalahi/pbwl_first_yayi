@@ -15,7 +15,10 @@ Route::get('about', function() {
 });
 
 Route::get('mahasiswa', function() {
-    return view('mahasiswa');
+    $npm = [123,124,125,126,127];
+    $nama = ['Najwa Fadiyah Nasution', 'Rosita Panjaitan', 'Tiara Maharani', 'Tri Rahmadani Nasution', 'Yayi Naulia Silalahi'];
+    $jumlah = count($npm);
+    return view('mahasiswa', compact('npm', 'nama', 'jumlah'));
 });
 
 Route::get('profile', function() {

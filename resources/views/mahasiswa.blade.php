@@ -47,30 +47,21 @@
                     <th>NIM</th>
                     <th>Nama Mahasiswa</th>
                     <th>Jenis Kelamin</th>
-                    <th colspan="2">TTL</th>
+                    <th>Alamat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>0702222054</td>
-                    <td>Yayi Naulia Silalahi</td>
-                    <td>Perempuan</td>
-                    <td>23 Januari 2004</td>
-                    <td rowspan="2">Kisaran</td>
-                </tr>
-                <tr>
-                    <td>0702222053</td>
-                    <td>Rosita Panjaitan</td>
-                    <td>Perempuan</td>
-                    <td>06 November 2004</td>
-                </tr>
-                <tr>
-                    <td>0702221009</td>
-                    <td>Najwa Fadiyah Nasution</td>
-                    <td>Perempuan</td>
-                    <td>31 Desember 2004</td>
-                    <td>Medan</td>
-                </tr>
+              <?php $nilai_awal = 0; ?>
+              @while ($nilai_awal < $jumlah)
+              <tr>
+                  <td>{{$npm[$nilai_awal]}}</td>
+                  <td>{{$nama[$nilai_awal]}}</td>
+                  <td>Perempuan</td>
+                  <td>Medan</td>
+              </tr>
+              <?php $nilai_awal++ ?>
+              @endwhile
+
             </tbody>
         </table>
       </div>
