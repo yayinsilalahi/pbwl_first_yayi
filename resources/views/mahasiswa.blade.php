@@ -66,7 +66,7 @@
                 @endwhile --}}
   
                 {{-- FOR --}}
-                <?php $nilai_awal = 0; ?>
+                {{-- <?php $nilai_awal = 0; ?>
                 @for ($i = 0; $i < $jumlah; $i++)
                 <tr>
                   <td>{{$npm[$i]}}</td>
@@ -75,7 +75,7 @@
                   <td>Medan</td>
                 </tr> 
                 <?php $nilai_awal++ ?>
-                @endfor
+                @endfor --}}
               </tbody>
           </table>
           </div>
