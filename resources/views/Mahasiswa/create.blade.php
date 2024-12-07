@@ -38,48 +38,9 @@
       </nav>
 
       <div class="container">
-        <h1>Ini Halaman Mahasiswa</h1>
-
+        <h1>Ini Halaman Tambah Mahasiswa</h1>
         <div class="row">
-          <div class="col-sm-6">
-            <h4>Tabel Mahasiswa</h4>
-            <table class="table table-dark table-sm table-striped table-bordered text-center">
-              <thead>
-                  <tr>
-                      <th>NIM</th>
-                      <th>Nama Mahasiswa</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Alamat</th>
-                  </tr>
-              </thead>
-              <tbody>
-                {{-- While --}}
-                {{-- <?php $nilai_awal = 0; ?>
-                @while ($nilai_awal < $jumlah)
-                <tr>
-                    <td>{{$npm[$nilai_awal]}}</td>
-                    <td>{{$nama[$nilai_awal]}}</td>
-                    <td>Perempuan</td>
-                    <td>Medan</td>
-                </tr>
-                <?php $nilai_awal++ ?>
-                @endwhile --}}
-  
-                {{-- FOR --}}
-                {{-- <?php $nilai_awal = 0; ?>
-                @for ($i = 0; $i < $jumlah; $i++)
-                <tr>
-                  <td>{{$npm[$i]}}</td>
-                  <td>{{$nama[$i]}}</td>
-                  <td>Perempuan</td>
-                  <td>Medan</td>
-                </tr> 
-                <?php $nilai_awal++ ?>
-                @endfor --}}
-              </tbody>
-          </table>
-          </div>
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <h4>Form Mahasiswa</h4>
             <form action="" method="GET">
               <div class="row">
@@ -107,8 +68,11 @@
                 </div>
               </div>
               <div class="row mt-2">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <button class="btn btn-primary" style="width: 100%" type="submit">Simpan</button>
+                </div>
+                <div class="col-sm-6">
+                  <a href="/mahasiswa" class="btn btn-secondary" style="width: 100%">Kembali</a>
                 </div>
               </div>
             </form>
