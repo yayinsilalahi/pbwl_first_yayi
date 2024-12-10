@@ -37,4 +37,5 @@ use Illuminate\Support\Facades\Route;
 //         echo 'Hello World ' . $i . 'x<br>';
 //     }
 // });
-Route::resource('mahasiswa', mahasiswaController::class);
+Route::post('/mahasiswa/create', [mahasiswaController::class, 'store']);
+Route::resource('/mahasiswa', mahasiswaController::class);

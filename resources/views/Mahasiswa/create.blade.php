@@ -38,33 +38,43 @@
       </nav>
 
       <div class="container">
-        <h1>Ini Halaman Tambah Mahasiswa</h1>
+        <h1>Halaman Tambah Mahasiswa</h1>
         <div class="row">
           <div class="col-sm-12">
+
             <h4>Form Mahasiswa</h4>
-            <form action="" method="GET">
+
+            @if ($errors->any())
+                <div class="pt-3 alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $item)
+                      <li>{{$item}}</li>                       
+                    @endforeach
+                  </ul>
+                </div>
+            @endif
+
+            <form action="" method="POST">
+              @csrf
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">NPM</label>
-                  <input type="number" name="npm" class="form-control" placeholder="Input NPM">
-                </div>
-                <div class="col-sm-6">
+                  <input type="number" name="npm" class="form-control" placeholder="Input NPM" value="{{Session::get('npm')}}">
                   <label for="">Nama Mahasiswa</label>
-                  <input type="text" name="" name="nama_mahasiswa" class="form-control" placeholder="Input Nama Mahasiswa">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <label for="">Tanggal Lahir</label>
-                  <input type="date" name="tgl_lahir" id="" class="form-control">
-                </div>
-                <div class="col-sm-6">
-                  <label for="">Prodi</label>
-                  <select name="prodi" id="" class="form-control">
-                    <option>Sistem Informasi</option>
-                    <option>Ilmu Komputer</option>
-                    <option>Teknik Informatika</option>
+                  <input type="text" name="nama_mahasiswa" id="" class="form-control" placeholder="Input Nama" value="{{Session::get('nama_mahasiswa')}}">
+                  {{-- <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Input Nama Mahasiswa" value="{{Session::get('nama_mahasiswa')}}"> --}}
+                  <label for="">Jenis Kelamin</label>
+                  <select name="jk" id="" class="form-select">
+                    <option>L</option>
+                    <option>P</option>
                   </select>
+                  <label for="">Tanggal Lahir</label>
+                      <input type="date" name="tgl_lahir" id="" class="form-control" value="{{Session::get('tgl_lahir')}}">
+                </div>
+                <div class="col-sm-6">
+                  <label for="">Alamat</label>
+                  <textarea name="alamat" id="" cols="30" rows="10" class="form-control" value="{{Session::get('alamat')}}"></textarea>
+                  {{-- <input type="text" name="alamat" id="" class="form-control" placeholder="Input Alamat" value="{{Session::get('alamat')}}"> --}}
                 </div>
               </div>
               <div class="row mt-2">

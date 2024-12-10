@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class mahasiswaController extends Controller
 {
@@ -12,7 +14,7 @@ class mahasiswaController extends Controller
     public function index()
     {
         //Halaman Mahasiswa
-        return view('Mahasiswa/mahasiswa');
+        return view('Mahasiswa.index');
     }
 
     /**
@@ -21,7 +23,7 @@ class mahasiswaController extends Controller
     public function create()
     {
         //Halaman Create Mahasiswa
-        return view('Mahasiswa/create');
+        return view('Mahasiswa.create');
     }
 
     /**
@@ -30,6 +32,39 @@ class mahasiswaController extends Controller
     public function store(Request $request)
     {
         //Halaman Simpan Tambah Mahasiswa
+
+        Session::flash('npm', $request->npm);
+        Session::flash('nama_mahasiswa', $request->nama_mahasiswa);
+        Session::flash('tgl_lahir', $request->tgl_lahir);
+        Session::flash('alamat', $request->alamat);
+
+$request->validate([
+    'npm' => 'required|numeric|unique:mahasiswa,npm',
+    'nama_mahasiswa' => 'required|string',
+    'jk' => 'required',
+    'tgl_lahir' => 'required',
+    'alamat' => 'required'
+],
+[
+    'npm.required' => 'NPM tidak boleh kosong!',
+    'npm.numeric' => 'NPM harus diisi dengan angka',
+    'npm.unique' => 'NPM sudah ada sebelumnya',
+    'nama_mahasiswa.required' => 'Nama tidak boleh kosong!',
+    'jk.required' => 'Jenis Kelamin tidak boleh kosong!',
+    'tgl_lahir.required' => 'Tanggal Lahir tidak boleh kosong!',
+    'alamat.required' => 'Alamat tidak boleh kosong!'
+]
+);
+
+        $data = [
+            'npm' => $request->npm,
+            'nama_mahasiswa' => $request->nama_mahasiswa,
+            'jk' => $request->jk,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat' => $request->alamat
+        ];
+        Mahasiswa::create($data);
+        return redirect('/mahasiswa')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
