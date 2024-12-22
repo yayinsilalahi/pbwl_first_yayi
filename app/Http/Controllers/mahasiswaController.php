@@ -14,7 +14,9 @@ class mahasiswaController extends Controller
     public function index()
     {
         //Halaman Mahasiswa
-        return view('Mahasiswa.index');
+        $mahasiswa = mahasiswa::orderBy('npm', 'asc')->get();
+        $no =1;
+        return view('Mahasiswa.index', compact('mahasiswa', 'no'));
     }
 
     /**
